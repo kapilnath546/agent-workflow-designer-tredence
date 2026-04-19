@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f8f9fa;
+    --bg-surface: #ffffff;
+    --border: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --node-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    --bg: #0f111a;
+    --bg-surface: #1a1d2e;
+    --border: #2d3149;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --primary: #818cf8;
+    --primary-hover: #6366f1;
+    --node-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+@layer components {
+  /* ── Buttons ───────────────────────────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 outline-none;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white shadow-sm hover:bg-primary-hover active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-bg-surface border border-border text-text-primary shadow-sm hover:bg-bg active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply text-text-secondary hover:bg-bg hover:text-text-primary active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 bg-opacity-10 text-red-600 border border-red-500 border-opacity-20 hover:bg-opacity-20 active:scale-95;
+  }
+
+  .btn-success {
+    @apply bg-green-500 bg-opacity-10 text-green-600 border border-green-500 border-opacity-20 hover:bg-opacity-20 active:scale-95;
+  }
+
+  /* ── Form Inputs ───────────────────────────────────────────────────────── */
+  .form-input {
+    @apply w-full px-3 py-2 bg-bg border border-border rounded-md text-sm text-text-primary outline-none transition-all duration-200;
+  }
+  
+  .form-input:focus {
+    @apply border-primary ring-1 ring-primary;
+  }
+
+  .form-label {
+    @apply block text-xs font-semibold text-text-muted tracking-wide uppercase mb-1.5;
+  }
+
+  .form-error {
+    @apply text-[11px] text-red-500 mt-1;
+  }
+
+  /* ── Nodes ─────────────────────────────────────────────────────────────── */
+  .workflow-node {
+    @apply bg-bg-surface rounded-xl shadow-node border border-border transition-all duration-200 min-w-[240px];
+  }
+
+  .workflow-node.selected {
+    @apply shadow-node-selected ring-2 ring-primary border-transparent;
+  }
+
+  .workflow-node.orphaned {
+    @apply opacity-60 grayscale-[50%];
+  }
+  
+  /* Select inputs light mode styling */
+  select.form-input option {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+  }
+}
+
+/* ── React Flow Overrides ───────────────────────────────────────────────── */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background-color: var(--bg-surface);
+  border: 2px solid var(--primary);
+  transition: all 0.2s ease;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.2);
+  background-color: var(--primary);
+}
+
+.react-flow__edge-path {
+  stroke: var(--text-muted);
+  stroke-width: 2;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--primary);
+  stroke-width: 3;
+}
+
+.react-flow__controls {
+  background: var(--bg-surface);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+}
+
+.react-flow__controls-button {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.react-flow__controls-button:hover {
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+.react-flow__minimap {
+  background-color: var(--bg-surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Custom Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
+.animate-fade-in { animation: fade-in 0.2s ease-out both; }
+.animate-slide-in-right { animation: slide-in-right 0.25s ease-out both; }
+.animate-slide-in-left { animation: slide-in-left 0.2s ease-out both; }
+.animate-scale-in { animation: scale-in 0.2s ease-out both; }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
