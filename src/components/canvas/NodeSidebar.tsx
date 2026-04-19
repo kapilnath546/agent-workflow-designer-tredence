@@ -90,18 +90,12 @@ export const NodeSidebar: FC = () => {
           className="px-5 py-5 flex-shrink-0"
           style={{ borderBottom: '1px solid var(--border)' }}
         >
-          <div className="flex items-center gap-2">
-            <div
-              className="w-7 h-7 rounded-md flex items-center justify-center"
-              style={{ background: 'var(--primary)', opacity: 0.15 }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="7" height="7" rx="1.5" />
-                <rect x="14" y="3" width="7" height="7" rx="1.5" />
-                <rect x="14" y="14" width="7" height="7" rx="1.5" />
-                <rect x="3" y="14" width="7" height="7" rx="1.5" />
-              </svg>
-            </div>
+          <div className="flex items-center gap-3">
+            <svg width="120" height="24" viewBox="0 0 516 96" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style={{ flexShrink: 0 }}>
+              <text x="0" y="72" fontFamily="Arial, sans-serif" fontSize="80" fontWeight="bold" fill="#FF5722" letterSpacing="2">
+                TREDENCE
+              </text>
+            </svg>
             <div>
               <div className="text-[13px] font-bold text-text-primary tracking-tight uppercase">
                 Nodes

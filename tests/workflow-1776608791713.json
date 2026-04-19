@@ -1,0 +1,80 @@
+{
+  "nodes": [
+    {
+      "id": "AUTOMATED_STEP_NODE-1776608435190",
+      "type": "AUTOMATED_STEP_NODE",
+      "data": {
+        "type": "AUTOMATED_STEP_NODE",
+        "title": "Automated Step",
+        "actionId": "send_email",
+        "actionParams": {
+          "to": "hrtredence@gmail.com",
+          "subject": "You are hired",
+          "body": "Based on the qualification , we proceed to hire you."
+        }
+      }
+    },
+    {
+      "id": "START_NODE-1776608442724",
+      "type": "START_NODE",
+      "data": {
+        "type": "START_NODE",
+        "startTitle": "Start the Intern Hiring",
+        "metadata": []
+      }
+    },
+    {
+      "id": "TASK_NODE-1776608446387",
+      "type": "TASK_NODE",
+      "data": {
+        "type": "TASK_NODE",
+        "title": "Give assessments for interns",
+        "description": "Allocate case study for the  interns",
+        "assignee": "kapilnath2005@gmail.com",
+        "dueDate": "2026-04-21",
+        "customFields": []
+      }
+    },
+    {
+      "id": "APPROVAL_NODE-1776608449300",
+      "type": "APPROVAL_NODE",
+      "data": {
+        "type": "APPROVAL_NODE",
+        "title": "Approval Required",
+        "approverRole": "Manager",
+        "autoApproveThreshold": 70
+      }
+    },
+    {
+      "id": "END_NODE-1776608463693",
+      "type": "END_NODE",
+      "data": {
+        "type": "END_NODE",
+        "endMessage": "Workflow completed.",
+        "summaryFlag": false
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-START_NODE-1776608442724-TASK_NODE-1776608446387-1776608512124",
+      "source": "START_NODE-1776608442724",
+      "target": "TASK_NODE-1776608446387"
+    },
+    {
+      "id": "e-TASK_NODE-1776608446387-APPROVAL_NODE-1776608449300-1776608523622",
+      "source": "TASK_NODE-1776608446387",
+      "target": "APPROVAL_NODE-1776608449300"
+    },
+    {
+      "id": "e-APPROVAL_NODE-1776608449300-AUTOMATED_STEP_NODE-1776608435190-1776608535065",
+      "source": "APPROVAL_NODE-1776608449300",
+      "target": "AUTOMATED_STEP_NODE-1776608435190"
+    },
+    {
+      "id": "e-AUTOMATED_STEP_NODE-1776608435190-END_NODE-1776608463693-1776608551829",
+      "source": "AUTOMATED_STEP_NODE-1776608435190",
+      "target": "END_NODE-1776608463693"
+    }
+  ]
+}
