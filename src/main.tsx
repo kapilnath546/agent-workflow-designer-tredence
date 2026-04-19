@@ -4,15 +4,13 @@ import './index.css';
 import App from './App';
 
 async function prepare() {
-  if (import.meta.env.DEV) {
-    const { worker } = await import('./api/browser');
-    await worker.start({
-      onUnhandledRequest: 'bypass',
-      serviceWorker: {
-        url: '/mockServiceWorker.js',
-      },
-    });
-  }
+  const { worker } = await import('./api/browser');
+  await worker.start({
+    onUnhandledRequest: 'bypass',
+    serviceWorker: {
+      url: '/mockServiceWorker.js',
+    },
+  });
 }
 
 prepare().then(() => {
