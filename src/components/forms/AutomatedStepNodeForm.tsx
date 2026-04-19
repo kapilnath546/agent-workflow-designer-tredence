@@ -17,7 +17,7 @@ export const AutomatedStepNodeForm: FC<Props> = ({ nodeId, data }) => {
   // Fetch available automations from GET /automations on mount
   useEffect(() => {
     setIsLoading(true);
-    fetch('/automations')
+    fetch('automations')
       .then((r) => r.json())
       .then((actions: AutomationAction[]) => setAutomations(actions))
       .catch(console.error)
