@@ -1,6 +1,12 @@
 # 🛠️ HR Workflow Designer
 ### *Building a better experience for the people who manage people.*
 
+## 🌐 Live Demo
+Don't want to spin it up locally? No problem. I have hosted a live, fully functional version of the prototype so you can test the interactions immediately: 
+👉 **[Experience the HR Workflow Designer Here](https://agent-workflow-designer-tredence-zdxn-fv2w67vxk.vercel.app/)**
+
+---
+
 ## ✨ The Vision
 HR administrators are often buried under complex, manual processes. Onboarding, leave approvals, and document verifications can quickly feel like a tangled web. **HR Workflow Designer** was built to turn that administrative complexity into a visual, intuitive story. 
 
